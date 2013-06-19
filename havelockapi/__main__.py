@@ -2,7 +2,7 @@ import argparse
 import sys
 import api
 import base
-import pprint
+import json
 
 if __name__ == "__main__":
 
@@ -24,4 +24,5 @@ if __name__ == "__main__":
 
     kwargs = args._get_kwargs()[1:]
 
-    pprint.pprint(api.__getattr__(args.CMD)(**dict(kwargs)))
+    data = api.__getattr__(args.CMD)(**dict(kwargs))
+    print json.dumps(data, indent=2)
