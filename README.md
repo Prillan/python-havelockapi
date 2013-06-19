@@ -12,6 +12,9 @@ Using `setuptools`
 
 ## Usage
 
+The API can be used in two different ways. By importing `havelockapi`
+or by running `python -m havelockapi CMD`.
+
 ### Simple ticker example
 
 	>>> import json
@@ -39,6 +42,17 @@ Using `setuptools`
       "HIM": {
         "units": "40000", 
         "last": "0.29000000"
+      }
+    }
+	
+Commands with arguments are called using keyword arguments.
+
+	>>> data = api.ticker(symbol="SDICE")
+	>>> print json.dumps(data, indent=2)
+    {
+      "SDICE": {
+        "units": "14460", 
+        "last": "0.20401999"
       }
     }
 
@@ -88,3 +102,13 @@ For help, run
 or
 
 	$ python -m havelockapi CMD --help
+
+#### Example
+
+	$ python -m havelockapi ticker --symbol ASICM
+	{
+      "ASICM": {
+        "units": "244268", 
+        "last": "0.02853002"
+      }
+    }
