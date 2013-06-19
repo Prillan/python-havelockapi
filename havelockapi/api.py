@@ -30,8 +30,8 @@ class HavelockApi():
     ]
     _command_dict = dict((cmd.name, cmd) for cmd in commands)
 
-    def __init__(self, secret=None):
-        self.secret = secret
+    def __init__(self, key=None):
+        self.secret = key
 
     def __getattr__(self, attr):
         if attr in self._command_dict:
