@@ -1,7 +1,7 @@
 # Havelock Investments API
 
 This is a simple python wrapper for the Havelock Investments API
-([documentation](https://www.havelockinvestments.com/apidoc.php).
+([documentation](https://www.havelockinvestments.com/apidoc.php)).
 
 ## Installation
 
