@@ -10,7 +10,12 @@ BASE_URL = "https://www.havelockinvestments.com/r/{cmd}"
 
 def command(cmd, **kwargs):
     data = urlencode(kwargs)
-    response = urllib2.urlopen(BASE_URL.format(cmd=cmd), data)
+    url = BASE_URL.format(cmd=cmd)
+    
+    req = urllib2.Request(url, data=data, 
+                          headers={'User-Agent': "Python api"}) 
+
+    response = urllib2.urlopen(req)
     
     response_data = response.read()
 
