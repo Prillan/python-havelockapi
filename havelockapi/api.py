@@ -11,8 +11,8 @@ class HavelockCommand():
         self.required = required
         self.optional = optional
 
-class HavelockApi():
-    
+class HavelockApi(object):
+
     commands = [
         HavelockCommand("ticker", [], ["symbol"]),
         HavelockCommand("tickerfull", [], ["symbol"]),
@@ -52,8 +52,10 @@ class HavelockApi():
                         raise CommandError("Invalid argument: {}".format(key))
 
                 return base.command(cmd.name, **kwargs)
-                    
+
             return command
+        else:
+            super(HavelockApi, self).__getattr__(attr)
 
     @classmethod
     def help(cls):
