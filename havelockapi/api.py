@@ -14,9 +14,14 @@ class HavelockCommand():
 class HavelockApi(object):
 
     commands = [
+        # General
         HavelockCommand("ticker", [], ["symbol"]),
         HavelockCommand("tickerfull", [], ["symbol"]),
         HavelockCommand("orderbook", ["symbol"], []),
+        HavelockCommand("orderbookfull", ["symbol"], []),
+        HavelockCommand("dividends", ["symbol"], []),
+        HavelockCommand("trades", ["symbol"], ["dtstart", "dtend"]),
+        # Account
         HavelockCommand("portfolio", ["key"], []),
         HavelockCommand("balance", ["key"], []),
         HavelockCommand("orders", ["key"], []),
@@ -24,7 +29,8 @@ class HavelockApi(object):
                         ["limit", "sort", "sinceid", "sincets"]),
         HavelockCommand("withdraw", ["key", "amount", "address"], []),
         HavelockCommand("deposit", ["key"], []),
-        HavelockCommand("ordercreate", ["key", "symbol", "action", "price", 
+        # Trading
+        HavelockCommand("ordercreate", ["key", "symbol", "action", "price",
                                         "units"], []),
         HavelockCommand("ordercancel", ["key", "id"], [])
     ]
